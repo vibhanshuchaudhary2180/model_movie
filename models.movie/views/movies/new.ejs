@@ -1,0 +1,75 @@
+<%- include('../partials/header') %>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1>Add New Movie</h1>
+        <form action="/movies" method="POST" class="validated-form" novalidate>
+            <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" type="text" id="title" name="movie[title]" required>
+                <div class="invalid-feedback">
+                    Please provide a movie title.
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="genre">Genre</label>
+                <select class="form-select" id="genre" name="movie[genre]" required>
+                    <option value="">Select a genre</option>
+                    <option value="Action">Action</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Sci-Fi">Sci-Fi</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Documentary">Documentary</option>
+                    <option value="Animation">Animation</option>
+                    <option value="Other">Other</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please select a genre.
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="releaseDate">Release Date</label>
+                <input class="form-control" type="date" id="releaseDate" name="movie[releaseDate]" required>
+                <div class="invalid-feedback">
+                    Please provide a release date.
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="director">Director</label>
+                <input class="form-control" type="text" id="director" name="movie[director]" required>
+                <div class="invalid-feedback">
+                    Please provide a director name.
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="rating">Rating (1-10)</label>
+                <input class="form-control" type="number" id="rating" name="movie[rating]" min="1" max="10" required>
+                <div class="invalid-feedback">
+                    Please provide a rating between 1 and 10.
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="review">Review</label>
+                <textarea class="form-control" id="review" name="movie[review]" rows="3" required></textarea>
+                <div class="invalid-feedback">
+                    Please provide a review.
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <button class="btn btn-success">Add Movie</button>
+                <a href="/movies" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

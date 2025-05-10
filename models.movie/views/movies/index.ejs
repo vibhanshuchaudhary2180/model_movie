@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+<h1>All Movies</h1>
+
+<% if(currentUser) { %>
+<div class="mb-3">
+    <a href="/movies/new" class="btn btn-primary">Add New Movie</a>
+</div>
+<% } %>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
+    <% for(let movie of movies) { %>
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title"><%= movie.title %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= movie.genre %> | <%= movie.releaseDate.toLocaleDateString() %></h6>
+                <p class="card-text">Director: <%= movie.director %></p>
+                <p class="card-text">Rating: <%= movie.rating %>/10</p>
+                <a href="/movies/<%= movie._id %>" class="btn btn-info">View Details</a>
+            </div>
+            <div class="card-footer text-muted">
+                Added by <%= movie.author ? movie.author.username : 'Unknown User' %>
+            </div>
+        </div>
+    </div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>
